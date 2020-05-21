@@ -1,0 +1,6 @@
+.datePicker__input{
+    border: 1px solid transparent;
+    border-radius: 3px;
+    margin-left: 20px;
+    cursor: pointer;
+}

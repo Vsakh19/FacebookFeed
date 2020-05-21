@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>FacebookFeed</title>
+    <link rel="stylesheet" href="./content/styles/page/style.css">
+</head>
+<body>
+<div class="page">
+    <header class="header">
+        <h1 class="header__title">FacebookFeed</h1>
+        <form class="datePicker">
+            <label class="datePicker__label" for="date">Выберите дату</label>
+            <input id="date" class="datePicker__input" type="date">
+            <button disabled class="datePicker__refreshFeed"><img class="datePicker__img" alt = "refresh" src="./content/images/refresh.png"></button>
+        </form>
+    </header>
+    <section class="main">
+        <div class="feed"></div>
+    </section>
+</div>
+<script src = "./script.js"></script>
+</body>
+</html>

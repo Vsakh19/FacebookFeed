@@ -1,0 +1,9 @@
+.postContainer__link{
+    text-decoration: none;
+    background: #576b95;
+    color: white;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    padding: 3px 3px;
+    font-weight: bold;
+}
