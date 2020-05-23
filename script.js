@@ -4,6 +4,7 @@ const input = document.querySelector(".datePicker__input");
 const main = document.querySelector(".main");
 const baseURL = "https://www.facebook.com/groups/";
 let postsArray = [];
+feed.innerHTML = '<h1>Я вывожусь всегда</h1>';
 
 
 function updateFeed(arr){
@@ -67,13 +68,39 @@ chrome.runtime.onMessage.addListener((request,sender)=>{
             chrome.tabs.create({url: `${baseURL+elem+'?sorting_setting=RECENT_ACTIVITY'}`, active: false}, ()=> {});
         })
     }
-    if (request.posts) {
+    if (request.message){
+        if(request.message.length === 0){
+            const errorMessage = document.createElement('h2');
+            errorMessage.innerText = "Не нашёл групп";
+            main.appendChild(errorMessage);
+        }
+        else {
+            const errorMessage = document.createElement('h2');
+            errorMessage.innerText = `Нашел ${request.message.length} групп`;
+            main.appendChild(errorMessage);
+        }
+
+    }
+    if (request.debug) {
         request.posts.forEach((elem)=>{
             postsArray.push(elem);
         });
         postsArray.sort((a, b)=>{
             return new Date(b[1])-new Date(a[1])
         });
+        const errorMessage = document.createElement('h1');
+        if (request.defaultArray.length>0){
+            errorMessage.innerText = "Код постов: " + request.defaultArray;
+        }
+        else {
+            errorMessage.innerText = 'Не нашел посты, код страницы: ' + request.pageCode;
+        }
+        main.appendChild(errorMessage);
         updateFeed(postsArray);
+    }
+    if (request.error){
+        const errorMessage = document.createElement('h2');
+        errorMessage.innerText = request.error;
+        main.appendChild(errorMessage);
     }
 });
