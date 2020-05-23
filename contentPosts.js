@@ -39,7 +39,10 @@ function getDate(str){
 document.onreadystatechange = () => {
     if (document.readyState === 'complete') {
         setTimeout(()=>{
-            const groupTitle = document.querySelector('.oi732d6d.ik7dh3pa.d2edcug0.qv66sw1b.c1et5uql.a8c37x1j.s89635nw.ew0dbk1b.a5q79mjw.g1cxx5fr.ekzkrbhg.oo9gr5id.hzawbc8m.ni8dbmo4.stjgntxs.ltmttdrg.g0qnabr5').innerHTML;
+            let groupTitle = document.querySelector('.oi732d6d.ik7dh3pa.d2edcug0.qv66sw1b.c1et5uql.a8c37x1j.s89635nw.ew0dbk1b.a5q79mjw.g1cxx5fr.ekzkrbhg.oo9gr5id.hzawbc8m.ni8dbmo4.stjgntxs.ltmttdrg.g0qnabr5');
+            if(groupTitle){
+                groupTitle= groupTitle.innerHTML;
+            }
             let postArray = Array.from(document.querySelectorAll(".sjgh65i0.l9j0dhe7.k4urcfbm.du4w35lb"));
             let resArray = [];
             postArray.forEach((elem)=>{
