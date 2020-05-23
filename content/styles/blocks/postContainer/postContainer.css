@@ -1,5 +1,6 @@
 @import url('./__title/postContainer__title.css');
 @import url('./__link/postContainer__link.css');
+@import url('./__img/postContainer__img.css');
 
 .postContainer{
     border-bottom: 1px solid black;

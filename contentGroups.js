@@ -5,7 +5,7 @@ document.onreadystatechange = () => {
             let hrefList = [];
             groupList.forEach((elem)=>{
                 const linkToGroup = elem.closest("a").getAttribute("href");
-                hrefList.push(linkToGroup);
+                hrefList.push(linkToGroup.split('/')[2]);
             });
             chrome.runtime.sendMessage({"message": hrefList, "close": true});
     }
